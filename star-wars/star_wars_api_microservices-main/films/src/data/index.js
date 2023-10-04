@@ -1,8 +1,10 @@
-const films = require("./films.json")
+const axios = requier("axios")
+const films = require("./characters.json")
 
 module.exports = {
     list: async () => {
-        return films
+        const result = await axios.get("http://database:8004/Films");
+        return result.data;
     },
 
     create: async () => {
